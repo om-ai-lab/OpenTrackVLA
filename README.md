@@ -217,7 +217,7 @@ If you find OpenTrackVLA useful in your research or applications, please cite it
 
 ```bibtex
 @misc{opentrackvla2025,
-  author       = {Kyusong Lee,Ying Heting and Tiancheng Zhao},
+  author       = {Kyusong Lee, Heting Ying and Tiancheng Zhao},
   title        = {OpenTrackVLA: Open-Source Visual Language Action Model for Visual Navigation and Following},
   year         = {2025},
   publisher    = {GitHub},
