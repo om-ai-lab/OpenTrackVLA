@@ -6,7 +6,7 @@
 
 **OpenTrackVLA** is a fully open-source Vision-Language-Action (VLA) stack that turns **monocular video** and **natural-language instructions** into actionable, short-horizon waypoints.
 
-While we explore massive backbones (8B/30B) internally, this repository is dedicated to democratizing embodied AI. We have intentionally released our highly efficient **0.6B checkpoint** along with the **full training pipeline**.
+This repository is dedicated to democratizing embodied AI. We have intentionally released our highly efficient **0.6B checkpoint** along with the **full training pipeline**.
 
 ### 🚀 Why OpenTrackVLA?
 
@@ -15,6 +15,15 @@ While we explore massive backbones (8B/30B) internally, this repository is dedic
   * **Multimodal Control:** Combines learned priors with visual input to guide real or simulated robots via simple text prompts.
 
 > **Acknowledgment:** OpenTrackVLA builds on the ideas introduced by the original [TrackVLA project](https://github.com/wsakobe/TrackVLA). Their partially-open release inspired this community-driven effort to keep the ecosystem open so researchers and developers can continue improving the stack together.
+
+---
+
+## 📢 News & Updates
+
+- 🔥 We have updated the model weights and refreshed the benchmark scores in the performance table. The latest checkpoint is available at **[omlab/opentrackvla-qwen06b](https://huggingface.co/omlab/opentrackvla-qwen06b)**. We will keep updating — **please keep watching this repository!**
+- **[Coming Soon]** 📦 We will be releasing the full training data. Stay tuned!
+
+---
 
 
 ## Demo In Action
@@ -198,11 +207,15 @@ Tune `CHUNKS`, `NUM_PARALLEL`, or the Habitat config inside `eval.sh` to rebalan
 | EVT‡         | 32.5 / 49.9 / 40.5     | 15.7 / 35.7 / 53.3   | 18.3 / 21.0 / 44.9   |
 | Uni-NaVid (Vicuna-7B)    | 25.7 / 39.5 / 41.9     | 11.3 / 27.4 / 43.5   | 8.26 / 28.6 / 43.7   |
 | TrackVLA (Vicuna-7B)     | 85.1 / 78.6 / 1.65     | 57.6 / 63.2 / 5.80   | 50.2 / 63.7 / 17.1   |
-| Ours (Qwen-0.6B)  | 64.8 / 84.4 / 5.00     | 33.6 / 66.3 / 8.84   | 39.6 / 76.7 / 6.38   |
+| Previous ckpt (Qwen-0.6B)  | 64.8 / 84.4 / 5.00     | 33.6 / 66.3 / 8.84   | 39.6 / 76.7 / 6.38   |
+| Our latest ckpt (Qwen-0.6B)  | 81.41 / 82.77 / 5.13     | 41.54 / 58.80 / 11.31   | 60.04 / 73.89 / 7.60   |
+
 
 † Uses GroundingDINO as the open-vocabulary detector. ‡ Uses SoM + GPT-4o as the vision stack (see the TrackVLA paper Table 2).
 
-**Transparency note:** Despite relying on a compact 0.6B backbone, OpenTrackVLA surpasses the 7B TrackVLA baseline on tracking-rate (TR↑) across all EVT-Bench settings. Success rate (SR↑) still trails the larger Vicuna-7B planner, and narrowing that gap without inflating compute remains an active focus. Larger 8B/30B research checkpoints exist internally, but we prioritize this lightweight release to keep reproduction and fine-tuning accessible.
+**Transparency note:** With the updated 0.6B checkpoint, OpenTrackVLA now surpasses the 7B TrackVLA baseline on success rate (SR↑) in the AT setting (60.04 vs 50.2) while remaining competitive on STT (81.41 vs 85.1). Tracking rate (TR↑) leads on STT and AT, with a marginal gap on DT. Collision rate (CR↓) is lower than TrackVLA on AT but remains higher on STT and DT — reducing collisions in denser scenarios without sacrificing tracking performance is an active area of improvement. We continue to prioritize this lightweight release to keep reproduction and fine-tuning accessible.
+
+
 
 ## 📚 Resources & References
 - Baseline checkpoint: [omlab/opentrackvla-qwen06b](https://huggingface.co/omlab/opentrackvla-qwen06b)
